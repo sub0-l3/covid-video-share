@@ -9,7 +9,7 @@ class LandingPage extends Component {
 
 
   render() {
-      const url = "https://www.radiantmediaplayer.com/media/bbb-360p.mp4"
+      const url = "https://firebasestorage.googleapis.com/v0/b/net-ninja-marioplan-5bc26.appspot.com/o/maldives-speedboat.mp4?alt=media&token=dd4611f3-ac59-4bb2-bd2e-13ff6e5468ca"
       const baseClassName = 'psa-landing-page';
     return(
         <div className={`${baseClassName}`}>
