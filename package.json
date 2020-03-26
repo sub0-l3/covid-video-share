@@ -9,7 +9,9 @@
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-download-link": "^2.3.0",
+    "react-scripts": "3.4.1",
+    "react-share": "^4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
