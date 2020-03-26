@@ -27,18 +27,19 @@ class VideoPlayer extends Component {
       const baseClassName = 'psa-video-player';
     return(
         <div className={`${baseClassName}`}>
-            {/* <video width="320" height="240" controls>
-                <source src={url} type="video/mp4" /> */}
+            <video width="320" height="240" controls>
+                <source src={url} type="video/mp4" />
                 {/* <source src="movie.ogg" type="video/ogg" /> */}
-                {/* Your browser does not support the video tag. */}
-            {/* </video> */}
+                Your browser does not support the video tag.
+            </video>
 
-            
-            <DownloadLink
-                label="Download Video"
-                filename="myfile.mp4"
-                exportFile={() => url}
-            />
+            <div className={`${baseClassName}__download-div`}>
+              <DownloadLink
+                  label="Download Video"
+                  filename="myfile.mp4"
+                  exportFile={() => url}
+              />
+            </div>
             <div className={`${baseClassName}__share-div`}>
             <FacebookShareButton url={url}>
               <FacebookIcon size="50" round={true}/>
