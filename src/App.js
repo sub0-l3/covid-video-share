@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import LandingPage from "./components/LandingPage";
 import { auth } from "./services/firebase";
 import { signin } from "./helpers/auth";
-import { readUserData } from "./helpers/db";
+import { readUserData, getUserVideos } from "./helpers/db";
 
 import "./App.css";
 
@@ -14,11 +14,12 @@ class App extends Component {
     };
   }
   async componentDidMount() {
-    await signin("subhrajit.debnath@gmail.com", "subzero");
+    await signin("tech@hopscotch.health", "111111");
 
     auth().onAuthStateChanged(user => {
       if (user) {
         readUserData(user.uid)
+        getUserVideos(user.uid);
         this.setState({
           authenticated: true
         });
