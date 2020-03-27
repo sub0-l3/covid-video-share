@@ -1,7 +1,6 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCQ_ZkJp4psTGgga4Wl-D6VmunSQ053tsk",
   authDomain: "recordingmechanic.firebaseapp.com",
   databaseURL: "https://recordingmechanic.firebaseio.com",
   projectId: "recordingmechanic",
