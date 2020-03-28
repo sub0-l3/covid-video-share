@@ -26,6 +26,7 @@ class LandingPage extends Component {
           videos: videos
         });
       }
+      // TODO: redirect to home page with some error.
     });
   }
 
