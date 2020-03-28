@@ -10,8 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      authenticated: false,
-      videos: {}
+      authenticated: false
     };
   }
   async componentDidMount() {
@@ -19,7 +18,7 @@ class App extends Component {
 
     auth().onAuthStateChanged(user => {
       if (user) {
-        readUserData(user.uid)
+        readUserData(user.uid);
 
         this.setState({
           authenticated: true

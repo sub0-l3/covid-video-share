@@ -2,74 +2,57 @@ import React, { Component } from "react";
 import { auth } from "../../services/firebase";
 import { signin } from "../../helpers/auth";
 import { db } from "../../services/firebase";
-import Loader from 'react-loader-spinner'
+import { getUserVideos } from "../../helpers/db";
+import Loader from "react-loader-spinner";
 
 import VideoCard from "../VideoCard";
 import "./LandingPage.scss";
 
 class LandingPage extends Component {
   static defaultProps = {
-    shouldDisplayMenu: true,
-    videos: []
+    shouldDisplayMenu: true
   };
 
   constructor(props) {
     super(props);
     this.state = {
       authenticated: false,
-      videos: {}
+      videos: []
     };
   }
 
-  async componentDidMount() {
-   signin("tech@hopscotch.health", "111111");
-   let videos = {}
-
-    await auth().onAuthStateChanged(user => {
+  componentDidMount() {
+    auth().onAuthStateChanged(user => {
       if (user) {
-        db.collection("users")
-          .doc(user.uid)
-          .collection("videos")
-          .get()
-          .then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-              videos[`${doc.id}`] = doc.data();
-            });
-          })
-          .catch(function(error) {
-            console.log("Error getting documents: ", error);
-          });
-      } else {
+        const videos = getUserVideos(user.uid);
         this.setState({
-          authenticated: false
+          videos: videos
         });
       }
     });
-    this.setState({videos: videos})
   }
 
   render() {
-
     const baseClassName = "psa-landing-page";
-    if(this.state.videos === {}){
+
+    const { videos } = this.state;
+    if (videos === []) {
+      // TODO : User might have no videos, to be fixed
       return (
         <Loader
-         type="Circles"
-         color="#00BFFF"
-         height={100}
-         width={100}
-         timeout={3000} //3 secs
-
-      />
-      )
+          type="Circles"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          timeout={3000} //3 secs
+        />
+      );
     }
     return (
       <div className={`${baseClassName}`}>
-        {
-          Object.keys(this.state.videos).map((key)=>{
-             return (<VideoCard url={this.state.videos[key].url} />)
-          })
-        }
+        {videos.map(video => {
+          return <VideoCard url={video.url} />;
+        })}
       </div>
     );
   }
