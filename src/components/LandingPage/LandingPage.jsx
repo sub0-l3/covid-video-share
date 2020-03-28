@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import VideoPlayer from "../VideoPlayer";
 import { auth } from "../../services/firebase";
 import { signin } from "../../helpers/auth";
 import { db } from "../../services/firebase";
 import Loader from 'react-loader-spinner'
 
+import VideoCard from "../VideoCard";
 import "./LandingPage.scss";
 
 class LandingPage extends Component {
@@ -67,7 +67,7 @@ class LandingPage extends Component {
       <div className={`${baseClassName}`}>
         {
           Object.keys(this.state.videos).map((key)=>{
-             return (<VideoPlayer url={this.state.videos[key].url} />)
+             return (<VideoCard url={this.state.videos[key].url} />)
           })
         }
       </div>

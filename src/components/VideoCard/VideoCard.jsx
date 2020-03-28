@@ -15,15 +15,15 @@ import {
   EmailIcon
 } from "react-share";
 
-import "./VideoPlayer.scss";
-class VideoPlayer extends Component {
+import "./VideoCard.scss";
+class VideoCard extends Component {
   static defaultProps = {
     shouldDisplayMenu: true
   };
 
   render() {
     const { url } = this.props;
-    const baseClassName = "psa-video-player";
+    const baseClassName = "psa-video-card";
     return (
       <div className={`${baseClassName}`}>
         <video width="320" height="240" controls>
@@ -69,6 +69,6 @@ class VideoPlayer extends Component {
   }
 }
 
-VideoPlayer.propTypes = {};
+VideoCard.propTypes = {};
 
-export default VideoPlayer;
+export default VideoCard;
