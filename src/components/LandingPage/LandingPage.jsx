@@ -36,7 +36,7 @@ class LandingPage extends Component {
     const baseClassName = "psa-landing-page";
 
     const { videos } = this.state;
-    if (videos === []) {
+    if (videos.length === 0) {
       // TODO : User might have no videos, to be fixed
       return (
         <Loader
