@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import LandingPage from "./components/LandingPage";
 import { auth } from "./services/firebase";
 import { signin } from "./helpers/auth";
-import { readUserData, getUserVideos } from "./helpers/db";
+import { readUserData } from "./helpers/db";
 
 import "./App.css";
 
@@ -10,7 +10,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      authenticated: false
+      authenticated: false,
+      videos: {}
     };
   }
   async componentDidMount() {
@@ -19,7 +20,7 @@ class App extends Component {
     auth().onAuthStateChanged(user => {
       if (user) {
         readUserData(user.uid)
-        getUserVideos(user.uid);
+
         this.setState({
           authenticated: true
         });
@@ -30,6 +31,7 @@ class App extends Component {
       }
     });
   }
+
   render() {
     return (
       <div className="App">

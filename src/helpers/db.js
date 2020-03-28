@@ -22,6 +22,7 @@ export function readUserData(uid) {
 }
 
 export function getUserVideos(uid) {
+  let videos = {};
   db.collection("users")
     .doc(uid)
     .collection("videos")
@@ -30,9 +31,12 @@ export function getUserVideos(uid) {
       querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
+        videos = doc.data()
+        // return doc.data()
       });
     })
     .catch(function(error) {
       console.log("Error getting documents: ", error);
     });
+    return videos;
 }
