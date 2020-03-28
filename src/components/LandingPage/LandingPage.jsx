@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import VideoPlayer from "../VideoPlayer";
+import VideoCard from "../VideoCard";
 import "./LandingPage.scss";
 
 class LandingPage extends Component {
@@ -13,7 +13,7 @@ class LandingPage extends Component {
     const baseClassName = "psa-landing-page";
     return (
       <div className={`${baseClassName}`}>
-        <VideoPlayer url={url} />
+        <VideoCard url={url} />
       </div>
     );
   }

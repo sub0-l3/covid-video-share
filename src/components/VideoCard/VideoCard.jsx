@@ -15,8 +15,8 @@ import {
   EmailIcon
 } from "react-share";
 
-import "./VideoPlayer.scss";
-class VideoPlayer extends Component {
+import "./VideoCard.scss";
+class VideoCard extends Component {
   static defaultProps = {
     shouldDisplayMenu: true
   };
@@ -69,6 +69,6 @@ class VideoPlayer extends Component {
   }
 }
 
-VideoPlayer.propTypes = {};
+VideoCard.propTypes = {};
 
-export default VideoPlayer;
+export default VideoCard;
