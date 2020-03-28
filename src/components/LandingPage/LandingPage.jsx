@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { auth } from "../../services/firebase";
-import { signin } from "../../helpers/auth";
-import { db } from "../../services/firebase";
 import { getUserVideos } from "../../helpers/db";
 import Loader from "react-loader-spinner";
 
@@ -16,7 +14,6 @@ class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      authenticated: false,
       videos: []
     };
   }
