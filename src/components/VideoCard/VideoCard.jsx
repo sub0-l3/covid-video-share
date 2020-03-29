@@ -14,6 +14,7 @@ import {
   WhatsappIcon,
   EmailIcon
 } from "react-share";
+import { FaDownload } from "react-icons/fa";
 
 import "./VideoCard.scss";
 class VideoCard extends Component {
@@ -61,7 +62,7 @@ class VideoCard extends Component {
         </div>
         <div className={`${baseClassName}__download`}>
           <DownloadLink
-            label="Download"
+            label={<FaDownload color={"white"} />}
             filename={name}
             exportFile={() => url}
           />

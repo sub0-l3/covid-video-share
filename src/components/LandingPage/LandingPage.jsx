@@ -34,20 +34,19 @@ class LandingPage extends Component {
     const baseClassName = "psa-landing-page";
 
     const { videos } = this.state;
-    if (videos.length === 0) {
-      // TODO : User might have no videos, to be fixed
-      return (
-        <Loader
-          type="Circles"
-          color="#00BFFF"
-          height={100}
-          width={100}
-          timeout={3000} //3 secs
-        />
-      );
-    }
+
     return (
       <div className={`${baseClassName}`}>
+        {videos.length === 0 && (
+          // TODO : User might have no videos, to be fixed
+          <Loader
+            type="Oval"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
+          />
+        )}
         {videos.map(video => {
           return <VideoCard url={video.url} name={video.psaName} />;
         })}
