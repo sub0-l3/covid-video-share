@@ -2,7 +2,9 @@ $block: "psa-landing-page";
 
 .#{$block} {
    height: 100vh;
-   background-color: #d2d2f8;
+   align-items: center;
+   justify-content: center;
+   background-color: #1e1e2f;
 }
 
 .#{$block}__video-list {
@@ -11,6 +13,7 @@ $block: "psa-landing-page";
 }
 
 .#{$block}__loader-div {
+   background-color: #1e1e2f;
    display: flex;
    flex-direction: column;
    justify-content: space-around;

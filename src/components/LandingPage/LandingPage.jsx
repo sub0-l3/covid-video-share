@@ -40,8 +40,8 @@ class LandingPage extends Component {
       return (
         <div className={`${baseClassName}__loader-div`}>
         <Loader
-          type="Circles"
-          color="#282c34"
+          type="Oval"
+          color="#00BFFF"
           height={100}
           width={100}
           timeout={3000} //3 secs
