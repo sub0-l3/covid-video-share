@@ -29,7 +29,7 @@ class App extends Component {
         });
         window.setTimeout(function(){
           // Move to a new location or you can do something else
-          window.location.href = "https://www.google.co.in";
+          window.location.href = process.env.REACT_APP_LINK_REDIRECT_UNAUTHORIZED;
     
       }, 5000);
       }
