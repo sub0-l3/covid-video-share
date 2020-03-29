@@ -10,7 +10,7 @@ In the project directory, you can run:
 ### 1.`npm install`
 
 ### 2. Replace .env file in the root folder with the right keys and values
- 
+ ```
 REACT_APP_API_KEY=XXXXxxxx
 REACT_APP_AUTH_DOMAIN=xxxxXXXX.firebaseapp.com
 REACT_APP_DATABASE_URL=https://xxxXXXX.firebaseio.com
@@ -23,7 +23,7 @@ REACT_APP_LINK_LOGOUT=
 REACT_APP_LINK_HOME=
 REACT_APP_LINK_PROFILE=
 REACT_APP_LINK_VIDEO_LIB=
-
+```
 ### 3. `npm start`
 
 Runs the app in the development mode.<br />
