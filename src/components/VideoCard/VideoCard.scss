@@ -1,14 +1,20 @@
 $block: "psa-video-card";
-.#{$block}{
+
+.#{$block} {
     min-width: 320px;
     width: 30%;
 }
 
-.#{$block}__download-div {
-    margin-top: 15px;
+.#{$block}__name {
+    color: white;
+    margin-top: 1rem;
 }
 
-.#{$block}__share-div {
-    margin-top: 20px;
+.#{$block}__download {
+    margin-top: 1rem;
+}
+
+.#{$block}__share {
+    margin-top: 1rem;
     width: 100%;
 }

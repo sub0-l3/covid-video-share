@@ -2,8 +2,7 @@ $block: "psa-landing-page";
 
 .#{$block} {
    display: flex;
-   justify-content: space-around;
    height: 100vh;
-   padding-top: 10px;
-   width: 100vw;
+   padding-top: 5rem;
+   background-color: #1e1e2f;
 }

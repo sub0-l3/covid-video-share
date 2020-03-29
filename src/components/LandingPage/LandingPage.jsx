@@ -49,7 +49,7 @@ class LandingPage extends Component {
     return (
       <div className={`${baseClassName}`}>
         {videos.map(video => {
-          return <VideoCard url={video.url} />;
+          return <VideoCard url={video.url} name={video.psaName} />;
         })}
       </div>
     );

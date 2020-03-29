@@ -22,7 +22,7 @@ class VideoCard extends Component {
   };
 
   render() {
-    const { url } = this.props;
+    const { url, name } = this.props;
     const baseClassName = "psa-video-card";
     return (
       <div className={`${baseClassName}`}>
@@ -31,38 +31,40 @@ class VideoCard extends Component {
           {/* <source src="movie.ogg" type="video/ogg" /> */}
           Your browser does not support the video tag.
         </video>
-
-        <div className={`${baseClassName}__download-div`}>
-          <DownloadLink
-            label="Download Video"
-            filename="myfile.mp4"
-            exportFile={() => url}
-          />
+        <div className={`${baseClassName}__name`}>
+          <h3>{name}</h3>
         </div>
-        <div className={`${baseClassName}__share-div`}>
+        <div className={`${baseClassName}__share`}>
           <FacebookShareButton url={url}>
-            <FacebookIcon size="50" round={true} />
+            <FacebookIcon size="30" round={true} />
           </FacebookShareButton>
 
           <LinkedinShareButton url={url}>
-            <LinkedinIcon size="50" round={true} />
+            <LinkedinIcon size="30" round={true} />
           </LinkedinShareButton>
 
           <TwitterShareButton url={url}>
-            <TwitterIcon size="50" round={true} />
+            <TwitterIcon size="30" round={true} />
           </TwitterShareButton>
 
           <TelegramShareButton url={url}>
-            <TelegramIcon size="50" round={true} />
+            <TelegramIcon size="30" round={true} />
           </TelegramShareButton>
 
           <WhatsappShareButton url={url}>
-            <WhatsappIcon size="50" round={true} />
+            <WhatsappIcon size="30" round={true} />
           </WhatsappShareButton>
 
           <EmailShareButton url={url}>
-            <EmailIcon size="50" round={true} />
+            <EmailIcon size="30" round={true} />
           </EmailShareButton>
+        </div>
+        <div className={`${baseClassName}__download`}>
+          <DownloadLink
+            label="Download"
+            filename={name}
+            exportFile={() => url}
+          />
         </div>
       </div>
     );
