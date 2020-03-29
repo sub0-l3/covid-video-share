@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NavigationBar from '../NavigationBar'
+import NavigationBar from "../NavigationBar";
 import { auth } from "../../services/firebase";
 import { signin } from "../../helpers/auth";
 import { readUserData } from "../../helpers/db";
@@ -27,23 +27,21 @@ class App extends Component {
         this.setState({
           authenticated: false
         });
-        window.setTimeout(function(){
+        window.setTimeout(function() {
           // Move to a new location or you can do something else
-          window.location.href = process.env.REACT_APP_LINK_REDIRECT_UNAUTHORIZED;
-    
-      }, 5000);
+          window.location.href =
+            process.env.REACT_APP_LINK_REDIRECT_UNAUTHORIZED;
+        }, 3000);
       }
     });
   }
 
   render() {
-    const baseClassName = "psa-app"
+    const baseClassName = "psa-app";
     return (
       <div className={`${baseClassName}`}>
-            <NavigationBar />
-          <div className={`${baseClassName}__app-div`}>
-            {this.props.children}
-          </div>
+        <NavigationBar />
+        <div className={`${baseClassName}__app-div`}>{this.props.children}</div>
       </div>
     );
   }

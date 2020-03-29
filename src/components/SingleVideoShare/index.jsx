@@ -1,2 +1,2 @@
-import SingleVideoShare from './SingleVideoShare';
+import SingleVideoShare from "./SingleVideoShare";
 export default SingleVideoShare;

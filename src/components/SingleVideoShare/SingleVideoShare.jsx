@@ -29,7 +29,8 @@ class SingleVideoShare extends Component {
 
   render() {
     const baseClassName = "psa-single-video-share";
-    const url = "https://firebasestorage.googleapis.com/v0/b/recordingmechanic.appspot.com/o/videos%2Fd428b8da-454a-fdbf-d17b-83dd239f1fe7?alt=media&token=1d1c035b-234b-45e1-a231-80d33e9feae7"
+    const url =
+      "https://firebasestorage.googleapis.com/v0/b/recordingmechanic.appspot.com/o/videos%2Fd428b8da-454a-fdbf-d17b-83dd239f1fe7?alt=media&token=1d1c035b-234b-45e1-a231-80d33e9feae7";
     // const { videos } = this.state;
     // if (videos.length === 0) {
     //   // TODO : User might have no videos, to be fixed
@@ -47,7 +48,7 @@ class SingleVideoShare extends Component {
     // }
     return (
       <div className={`${baseClassName}`}>
-            <VideoCard url={url} name={'sample video'} />
+        <VideoCard url={url} name={"sample video"} />
       </div>
     );
   }
