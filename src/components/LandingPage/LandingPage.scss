@@ -13,10 +13,11 @@ $block: "psa-landing-page";
 }
 
 .#{$block}__loader-div {
-   background-color: #1e1e2f;
+   background-color:#1e1e2f;
    display: flex;
    flex-direction: column;
    justify-content: space-around;
    height: 100vh;
+   text-align: center;
    width: 100vw;
 }

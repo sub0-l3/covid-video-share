@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import LandingPage from "./components/LandingPage";
-import { auth } from "./services/firebase";
-import { signin } from "./helpers/auth";
-import { readUserData } from "./helpers/db";
+import NavigationBar from '../NavigationBar'
+import { auth } from "../../services/firebase";
+import { signin } from "../../helpers/auth";
+import { readUserData } from "../../helpers/db";
 
-import "./App.css";
+import "./App.scss";
 
 class App extends Component {
   constructor(props) {
@@ -37,9 +37,13 @@ class App extends Component {
   }
 
   render() {
+    const baseClassName = "psa-app"
     return (
-      <div className="App">
-        <LandingPage />
+      <div className={`${baseClassName}`}>
+            <NavigationBar />
+          <div className={`${baseClassName}__app-div`}>
+            {this.props.children}
+          </div>
       </div>
     );
   }
