@@ -45,25 +45,29 @@ class LandingPage extends Component {
     const baseClassName = "psa-landing-page";
     const { isLoading, videos } = this.state;
     if (isLoading) {
-      // TODO : User might have no videos, to be fixed
       return (
         <div className={`${baseClassName}__loader-div`}>
           <Loader
-            type="Oval"
+            type="ThreeDots"
             color="#00BFFF"
             height={100}
             width={100}
-            timeout={3000} //3 secs
+            timeout={3000}
           />
         </div>
       );
     }
     return (
       <div className={`${baseClassName}`}>
-        {/* <NavigationBar /> */}
         <div className={`${baseClassName}__video-list`}>
           {videos.map(video => {
-            return <VideoCard url={video.url} name={video.psaName} key={video.psaId} />;
+            return (
+              <VideoCard
+                url={video.url}
+                name={video.psaName}
+                key={video.psaId}
+              />
+            );
           })}
         </div>
       </div>
