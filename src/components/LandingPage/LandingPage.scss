@@ -6,3 +6,11 @@ $block: "psa-landing-page";
    padding-top: 5rem;
    background-color: #1e1e2f;
 }
+
+.#{$block}__loader-div {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   height: 100vh;
+   width: 100vw;
+}

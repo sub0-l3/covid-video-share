@@ -37,6 +37,7 @@ class LandingPage extends Component {
     if (videos.length === 0) {
       // TODO : User might have no videos, to be fixed
       return (
+        <div className={`${baseClassName}__loader-div`}>
         <Loader
           type="Circles"
           color="#00BFFF"
@@ -44,6 +45,7 @@ class LandingPage extends Component {
           width={100}
           timeout={3000} //3 secs
         />
+        </div>
       );
     }
     return (
