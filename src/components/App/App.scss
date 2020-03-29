@@ -1,19 +1,24 @@
 $block: "psa-app";
 
 @keyframes #{$block}-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-  .#{$block} {
-    height: 100vh;
-    width: 100vw;
-  }
-  
-  .#{$block}__div {
-    padding-top: 1rem;
-  }
+.#{$block}__div {
+  padding-top: 1rem;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+body {
+  min-height: 100%;
+  background-color: #1e1e2f;
+}

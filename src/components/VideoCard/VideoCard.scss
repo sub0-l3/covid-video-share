@@ -1,20 +1,21 @@
 $block: "psa-video-card";
 
 .#{$block} {
-    min-width: 320px;
-    width: 30%;
+  min-width: 320px;
+  text-align: center;
+  width: 30%;
 }
 
 .#{$block}__name {
-    color: white;
-    margin-top: 1rem;
+  color: white;
+  margin-top: 1rem;
 }
 
 .#{$block}__download {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .#{$block}__share {
-    margin-top: 1rem;
-    width: 100%;
+  margin-top: 1rem;
+  width: 100%;
 }

@@ -20,38 +20,41 @@ class LandingPage extends Component {
   }
 
   componentDidMount() {
-    this.setState({isLoading: true})
+    this.setState({ isLoading: true });
     auth().onAuthStateChanged(user => {
       if (user) {
-        const videos = getUserVideos(user.uid);
-        this.setState({
-          videos: videos,
-          isLoading:false
+        getUserVideos(user.uid).onSnapshot(querySnapshot => {
+          let videos = [];
+          querySnapshot.forEach(function(doc) {
+            console.log(doc.id, " => ", doc.data());
+            videos.push(doc.data());
+          });
+          this.setState({
+            videos: videos,
+            isLoading: false
+          });
         });
       }
-      // TODO: redirect to home page with some error.
     });
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.videos.length === 0;
-}
+  }
   render() {
     const baseClassName = "psa-landing-page";
-    console.log(this.state.videos.length)
-    console.log(this.state.videos)
     const { isLoading, videos } = this.state;
     if (isLoading) {
       // TODO : User might have no videos, to be fixed
       return (
         <div className={`${baseClassName}__loader-div`}>
-        <Loader
-          type="Oval"
-          color="#00BFFF"
-          height={100}
-          width={100}
-          timeout={3000} //3 secs
-        />
+          <Loader
+            type="Oval"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
+          />
         </div>
       );
     }
@@ -60,7 +63,7 @@ class LandingPage extends Component {
         {/* <NavigationBar /> */}
         <div className={`${baseClassName}__video-list`}>
           {videos.map(video => {
-            return <VideoCard url={video.url} name={video.psaName} />;
+            return <VideoCard url={video.url} name={video.psaName} key={video.psaId} />;
           })}
         </div>
       </div>

@@ -1,23 +1,21 @@
 $block: "psa-landing-page";
 
 .#{$block} {
-   height: 100vh;
-   align-items: center;
-   justify-content: center;
-   background-color: #1e1e2f;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e1e2f;
 }
 
 .#{$block}__video-list {
-   display: flex;
-   padding-top: 1rem;
+  display: flex;
+  padding: 1rem;
 }
 
 .#{$block}__loader-div {
-   background-color:#1e1e2f;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-   height: 100vh;
-   text-align: center;
-   width: 100vw;
+  background-color: #1e1e2f;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+  text-align: center;
 }
