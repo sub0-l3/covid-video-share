@@ -4,6 +4,7 @@ import { getUserVideos } from "../../helpers/db";
 import Loader from "react-loader-spinner";
 
 import VideoCard from "../VideoCard";
+import NavigationBar from '../NavigationBar';
 import "./LandingPage.scss";
 
 class LandingPage extends Component {
@@ -40,7 +41,7 @@ class LandingPage extends Component {
         <div className={`${baseClassName}__loader-div`}>
         <Loader
           type="Circles"
-          color="#00BFFF"
+          color="#282c34"
           height={100}
           width={100}
           timeout={3000} //3 secs
@@ -50,9 +51,12 @@ class LandingPage extends Component {
     }
     return (
       <div className={`${baseClassName}`}>
-        {videos.map(video => {
-          return <VideoCard url={video.url} name={video.psaName} />;
-        })}
+        <NavigationBar />
+        <div className={`${baseClassName}__video-list`}>
+          {videos.map(video => {
+            return <VideoCard url={video.url} name={video.psaName} />;
+          })}
+        </div>
       </div>
     );
   }

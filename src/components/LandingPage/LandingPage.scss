@@ -1,10 +1,13 @@
 $block: "psa-landing-page";
 
 .#{$block} {
-   display: flex;
    height: 100vh;
-   padding-top: 5rem;
-   background-color: #1e1e2f;
+   background-color: #d2d2f8;
+}
+
+.#{$block}__video-list {
+   display: flex;
+   padding-top: 1rem;
 }
 
 .#{$block}__loader-div {
