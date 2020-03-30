@@ -1,6 +1,10 @@
 $block: 'psa-navigation-bar';
 
 
+.#{$block} { 
+  position: sticky;
+  top: 0;
+}
 .#{$block}__nav-ul {
     list-style-type: none;
     margin: 0;

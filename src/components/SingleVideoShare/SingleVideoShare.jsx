@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { auth } from "../../services/firebase";
+import { getVideo } from "../../helpers/db";
+import Loader from "react-loader-spinner";
 
 import VideoCard from "../VideoCard";
 import "./SingleVideoShare.scss";
@@ -11,44 +14,55 @@ class SingleVideoShare extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      videos: []
+      video: {},
+      isLoading: false
     };
   }
 
   componentDidMount() {
-    // auth().onAuthStateChanged(user => {
-    //   if (user) {
-    //     const videos = getUserVideos(user.uid);
-    //     this.setState({
-    //       videos: videos
-    //     });
-    //   }
-    //   // TODO: redirect to home page with some error.
-    // });
+    this.setState({
+      isLoading: true
+    })
+    const videoId = this.props.match.params.id;
+    auth().onAuthStateChanged(user => {
+      if (user) {
+        getVideo(user.uid, videoId).onSnapshot(querySnapshot => {
+          console.log(querySnapshot.data())
+          this.setState({
+                  video: querySnapshot.data(),
+                  isLoading: false
+                });
+        });
+      }
+    });
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return Object.keys(this.state.video).length === 0;
   }
 
   render() {
     const baseClassName = "psa-single-video-share";
-    const url =
-      "https://firebasestorage.googleapis.com/v0/b/recordingmechanic.appspot.com/o/videos%2Fd428b8da-454a-fdbf-d17b-83dd239f1fe7?alt=media&token=1d1c035b-234b-45e1-a231-80d33e9feae7";
-    // const { videos } = this.state;
-    // if (videos.length === 0) {
-    //   // TODO : User might have no videos, to be fixed
-    //   return (
-    //     <div className={`${baseClassName}__loader-div`}>
-    //     <Loader
-    //       type="Oval"
-    //       color="#00BFFF"
-    //       height={100}
-    //       width={100}
-    //       timeout={3000} //3 secs
-    //     />
-    //     </div>
-    //   );
-    // }
+
+    const { isLoading, video } = this.state;
+    
+    if (isLoading) {
+      // TODO : User might have no videos, to be fixed
+      return (
+        <div className={`${baseClassName}__loader-div`}>
+        <Loader
+          type="Oval"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          timeout={3000} //3 secs
+        />
+        </div>
+      );
+    }
     return (
       <div className={`${baseClassName}`}>
-        <VideoCard url={url} name={"sample video"} />
+        <VideoCard url={video.url} name={"sample video"} />
       </div>
     );
   }

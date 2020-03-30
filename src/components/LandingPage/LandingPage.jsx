@@ -15,7 +15,8 @@ class LandingPage extends Component {
     super(props);
     this.state = {
       videos: [],
-      isLoading: false
+      isLoading: false,
+      psaId: []
     };
   }
 
@@ -25,13 +26,16 @@ class LandingPage extends Component {
       if (user) {
         getUserVideos(user.uid).onSnapshot(querySnapshot => {
           let videos = [];
+          let psaId = [];
           querySnapshot.forEach(function(doc) {
             console.log(doc.id, " => ", doc.data());
             videos.push(doc.data());
+            psaId.push(doc.id);
           });
           this.setState({
             videos: videos,
-            isLoading: false
+            isLoading: false,
+            psaId: psaId
           });
         });
       }
@@ -43,7 +47,7 @@ class LandingPage extends Component {
   }
   render() {
     const baseClassName = "psa-landing-page";
-    const { isLoading, videos } = this.state;
+    const { isLoading, videos, psaId } = this.state;
     if (isLoading) {
       return (
         <div className={`${baseClassName}__loader-div`}>
@@ -60,12 +64,14 @@ class LandingPage extends Component {
     return (
       <div className={`${baseClassName}`}>
         <div className={`${baseClassName}__video-list`}>
-          {videos.map(video => {
+          {videos.map((video, index) => {
             return (
               <VideoCard
                 url={video.url}
                 name={video.psaName}
                 key={video.psaId}
+                psaId={psaId[index]}
+                redirect={true}
               />
             );
           })}

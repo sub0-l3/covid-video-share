@@ -8,7 +8,7 @@ const Routes = () => (
   <App>
     <Switch>
       <Route exact path="/" component={LandingPage} />
-      <Route exact path="/share-single-video" component={SingleVideoShare} />
+      <Route exact path="/videos/:id" component={SingleVideoShare} />
     </Switch>
   </App>
 );

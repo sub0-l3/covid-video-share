@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import DownloadLink from "react-download-link";
+import { withRouter } from "react-router-dom";
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -22,11 +23,16 @@ class VideoCard extends Component {
     shouldDisplayMenu: true
   };
 
+  redirectToSingleVideo = () => {
+    if(this.props.redirect)
+    this.props.history.replace(`/videos/${this.props.psaId}`)
+  }
+  
   render() {
     const { url, name } = this.props;
     const baseClassName = "psa-video-card";
     return (
-      <div className={`${baseClassName}`}>
+      <div className={`${baseClassName}`} onClick={()=> this.redirectToSingleVideo()}>
         <video width="320" height="240" controls>
           <source src={url} type="video/mp4" />
           {/* <source src="movie.ogg" type="video/ogg" /> */}
@@ -74,4 +80,4 @@ class VideoCard extends Component {
 
 VideoCard.propTypes = {};
 
-export default VideoCard;
+export default withRouter(VideoCard);

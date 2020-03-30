@@ -27,3 +27,11 @@ export function getUserVideos(uid) {
     .doc(uid)
     .collection("videos");
 }
+
+export function getVideo(uid, videoId) {
+  return db
+    .collection("users")
+    .doc(uid)
+    .collection("videos")
+    .doc(videoId)
+}
