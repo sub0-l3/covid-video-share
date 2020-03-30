@@ -24,21 +24,24 @@ class VideoCard extends Component {
   };
 
   redirectToSingleVideo = () => {
-    if(this.props.redirect)
-    this.props.history.replace(`/videos/${this.props.psaId}`)
-  }
-  
+    if (this.props.redirect)
+      this.props.history.replace(`/videos/${this.props.psaId}`);
+  };
+
   render() {
     const { url, name } = this.props;
     const baseClassName = "psa-video-card";
     return (
-      <div className={`${baseClassName}`} onClick={()=> this.redirectToSingleVideo()}>
+      <div className={`${baseClassName}`}>
         <video width="320" height="240" controls>
           <source src={url} type="video/mp4" />
           {/* <source src="movie.ogg" type="video/ogg" /> */}
           Your browser does not support the video tag.
         </video>
-        <div className={`${baseClassName}__name`}>
+        <div
+          className={`${baseClassName}__name`}
+          onClick={() => this.redirectToSingleVideo()}
+        >
           <h3>{name}</h3>
         </div>
         <div className={`${baseClassName}__share`}>

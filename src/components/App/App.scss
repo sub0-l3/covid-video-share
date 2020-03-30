@@ -16,10 +16,11 @@ $block: "psa-app";
 html {
   height: 100%;
   box-sizing: border-box;
-  overflow: scroll;
+  overflow-y: auto;
 }
 body {
   min-height: 100%;
   background-color: #1e1e2f;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
