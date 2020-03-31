@@ -14,7 +14,6 @@ class App extends Component {
     };
   }
   async componentDidMount() {
-    await signin("tech@hopscotch.health", "111111");
 
     auth().onAuthStateChanged(user => {
       if (user) {
@@ -24,14 +23,16 @@ class App extends Component {
           authenticated: true
         });
       } else {
-        this.setState({
-          authenticated: false
-        });
-        window.setTimeout(function() {
-          // Move to a new location or you can do something else
-          window.location.href =
-            process.env.REACT_APP_LINK_REDIRECT_UNAUTHORIZED;
-        }, 3000);
+
+        signin("tech@hopscotch.health", "111111");
+        // this.setState({
+        //   authenticated: false
+        // });
+        // window.setTimeout(function() {
+        //   // Move to a new location or you can do something else
+        //   window.location.href =
+        //     process.env.REACT_APP_LINK_REDIRECT_UNAUTHORIZED;
+        // }, 3000);
       }
     });
   }
