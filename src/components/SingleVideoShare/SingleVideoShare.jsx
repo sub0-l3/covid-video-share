@@ -62,7 +62,7 @@ class SingleVideoShare extends Component {
     }
     return (
       <div className={`${baseClassName}`}>
-        <VideoCard url={video.outputUrl} name={"sample video"} />
+        <VideoCard url={video.outputUrl} name={video.psaName} />
       </div>
     );
   }
