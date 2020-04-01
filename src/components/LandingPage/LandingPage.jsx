@@ -67,7 +67,7 @@ class LandingPage extends Component {
           {videos.map((video, index) => {
             return (
               <VideoCard
-                url={video.url}
+                url={video.outputUrl}
                 name={video.psaName}
                 key={video.psaId}
                 psaId={psaId[index]}

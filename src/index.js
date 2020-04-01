@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+//import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import { HashRouter, Route } from 'react-router-dom';
 
 import Routes from './routes';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes />
-    </BrowserRouter>
+    <HashRouter>
+    <Routes />
+</HashRouter>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
