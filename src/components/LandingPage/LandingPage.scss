@@ -11,6 +11,8 @@ $block: "psa-landing-page";
   align-items: center;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding: 1rem;
 
   @media (min-width: 768px) {

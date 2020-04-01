@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import DownloadLink from "react-download-link";
 import { withRouter } from "react-router-dom";
+import Moment from 'react-moment'
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -29,7 +30,7 @@ class VideoCard extends Component {
   };
 
   render() {
-    const { url, name } = this.props;
+    const { url, name, date } = this.props;
     const baseClassName = "psa-video-card";
     return (
       <div className={`${baseClassName}`}>
@@ -68,6 +69,9 @@ class VideoCard extends Component {
           <EmailShareButton url={url}>
             <EmailIcon size="30" round={true} />
           </EmailShareButton>
+        </div>
+        <div className={`${baseClassName}__date`}>
+          created on: <Moment format="D MMM YYYY" withTitle>{date}</Moment>
         </div>
         <div className={`${baseClassName}__download`}>
           <DownloadLink
