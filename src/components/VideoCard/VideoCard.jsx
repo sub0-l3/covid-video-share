@@ -51,7 +51,7 @@ class VideoCard extends Component {
   render() {
     const { url, name, date } = this.props;
     const baseClassName = "psa-video-card";
-
+    
     return (
       <div className={`${baseClassName}`}>
         <video width="320" height="240" controls>
@@ -66,27 +66,27 @@ class VideoCard extends Component {
           <h3>{name}</h3>
         </div>
         <div className={`${baseClassName}__share`}>
-          <FacebookShareButton url={url}>
+          <FacebookShareButton url={window.location}>
             <FacebookIcon size="30" round={true} />
           </FacebookShareButton>
 
-          <LinkedinShareButton url={url}>
+          <LinkedinShareButton url={window.location}>
             <LinkedinIcon size="30" round={true} />
           </LinkedinShareButton>
 
-          <TwitterShareButton url={url}>
+          <TwitterShareButton url={window.location}>
             <TwitterIcon size="30" round={true} />
           </TwitterShareButton>
 
-          <TelegramShareButton url={url}>
+          <TelegramShareButton url={window.location}>
             <TelegramIcon size="30" round={true} />
           </TelegramShareButton>
 
-          <WhatsappShareButton url={url}>
+          <WhatsappShareButton url={window.location}>
             <WhatsappIcon size="30" round={true} />
           </WhatsappShareButton>
 
-          <EmailShareButton url={url}>
+          <EmailShareButton url={window.location}>
             <EmailIcon size="30" round={true} />
           </EmailShareButton>
         </div>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { auth } from "../../services/firebase";
 import { getUserVideos } from "../../helpers/db";
 import Loader from "react-loader-spinner";
-
+import {Helmet} from "react-helmet";
 import VideoCard from "../VideoCard";
 import "./LandingPage.scss";
 
@@ -63,6 +63,22 @@ class LandingPage extends Component {
     }
     return (
       <div className={`${baseClassName}`}>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Covid-19</title>
+            <meta name="description" content="Help to spread awareness for covid-19" />
+            <link rel="canonical" href="http://mysite.com/example" />
+
+            <meta property="og:title" content="Avareness for covid" />
+            <meta property="og:description" content="Help to spread awareness for covid-19" />
+            <meta property="og:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" />
+            <meta property="og:url" content={window.location} />
+
+            <meta name="twitter:title" content="Avareness for covid" />
+            <meta name="twitter:description" content="Help to spread awareness for covid-19" />
+            <meta name="twitter:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" />
+            <meta name="twitter:card" content="summary_large_image" />
+        </Helmet>
         <div className={`${baseClassName}__video-list`}>
           {videos.map((video, index) => {
             return (
