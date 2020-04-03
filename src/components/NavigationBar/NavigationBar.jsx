@@ -9,33 +9,54 @@ class NavigationBar extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      
-    };
+    this.state = {};
   }
 
-goBackBtn = () => {
-  window.history.back();
-}
+  goBackBtn = () => {
+    window.history.back();
+  };
+
+  logOut = () => {
+    this.props.logout();
+  };
+
   render() {
     const baseClassName = "psa-navigation-bar";
-    const {
-           avatar
-          } = this.props;
+    const { avatar, userName } = this.props;
 
-    const userProfile= (
-       <div className={`${baseClassName}__username-div`}>
-          <span className={`${baseClassName}__avatar-span`}><img src={avatar} className={`${baseClassName}__avatar`} alt="avatar"/></span><span>Logout</span>
-        </div>
-      )
+    const userProfile = (
+      <div className={`${baseClassName}__user`}>
+        <span className={`${baseClassName}__avatar-span`}>
+          <img
+            src={avatar}
+            className={`${baseClassName}__avatar`}
+            alt="avatar"
+          />
+        </span>
+        <span className={`${baseClassName}__username`}>Hi, {userName}</span>
+        <span>
+          <a
+            href={process.env.REACT_APP_LINK_REDIRECT_UNAUTHORIZED}
+            onClick={() => this.logOut()}
+          >
+            Logout
+          </a>
+        </span>
+      </div>
+    );
 
-    
     return (
       <div className={`${baseClassName}`}>
         <ul className={`${baseClassName}__nav-ul`}>
-            <li><a href="# " className="active" onClick={()=>this.goBackBtn()}>Back</a></li>
-            <li><a href={process.env.REACT_APP_LINK_VIDEO_LIB}>Video library</a></li>
-            <li><a href={process.env.REACT_APP_LINK_REDIRECT_UNAUTHORIZED}>{userProfile}</a></li>
+          <li>
+            <a href="# " className="active" onClick={() => this.goBackBtn()}>
+              Back
+            </a>
+          </li>
+          <li>
+            <a href={process.env.REACT_APP_LINK_VIDEO_LIB}>Video library</a>
+          </li>
+          <li>{userName && userProfile}</li>
         </ul>
       </div>
     );

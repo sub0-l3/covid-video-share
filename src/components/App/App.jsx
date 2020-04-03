@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NavigationBar from "../NavigationBar";
 import { auth } from "../../services/firebase";
-import { signin } from "../../helpers/auth";
+import { signin, logout } from "../../helpers/auth";
 import { readUserData } from "../../helpers/db";
 
 import "./App.scss";
@@ -14,15 +14,9 @@ class App extends Component {
     };
   }
   componentDidMount() {
-
     auth().onAuthStateChanged(user => {
       if (user) {
-        readUserData(user.uid)
-        // .onSnapshot(querySnapshot => {
-        //   console.log('hi');
-        //   console.log(querySnapshot.data())
-        // });
-        console.log(user)
+        readUserData(user.uid);
         this.setState({
           authenticated: true,
           userName: user.displayName,
@@ -30,7 +24,6 @@ class App extends Component {
           avatar: user.photoURL
         });
       } else {
-
         signin("tech@hopscotch.health", "111111");
         // this.setState({
         //   authenticated: false
@@ -43,17 +36,18 @@ class App extends Component {
       }
     });
   }
-  
+
   render() {
     const baseClassName = "psa-app";
-    const  {userName, email, avatar} = this.state;
+    const { userName, email, avatar } = this.state;
     return (
       <div className={`${baseClassName}`}>
         <NavigationBar
-         userName={userName}
-         email={email}
-         avatar={avatar} 
-         />
+          userName={userName}
+          email={email}
+          avatar={avatar}
+          logout={logout}
+        />
         <div className={`${baseClassName}__app-div`}>{this.props.children}</div>
       </div>
     );

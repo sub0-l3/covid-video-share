@@ -70,7 +70,7 @@ class LandingPage extends Component {
                 url={video.outputUrl}
                 name={video.psaName}
                 outputVideoId={video.outputVideoId}
-                key={video.psaId}
+                key={index}
                 psaId={psaId[index]}
                 videoId={video.videoId}
                 redirect={true}
