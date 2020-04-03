@@ -12,8 +12,14 @@ class NavigationBar extends Component {
     this.state = {};
   }
 
-  goBackBtn = () => {
-    window.history.back();
+  // goBackBtn = () => {
+  //   // window.history.back();
+  //   window.history.go(-1)
+
+  // };
+  goBackBtn = (e) => {
+    window.history.go(-1);
+    e.preventDefault();
   };
 
   logOut = () => {
@@ -49,7 +55,7 @@ class NavigationBar extends Component {
       <div className={`${baseClassName}`}>
         <ul className={`${baseClassName}__nav-ul`}>
           <li>
-            <a href="# " className="active" onClick={() => this.goBackBtn()}>
+            <a href="# " className="active" onClick={this.goBackBtn}>
               Back
             </a>
           </li>

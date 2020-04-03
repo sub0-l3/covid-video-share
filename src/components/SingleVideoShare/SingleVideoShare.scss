@@ -9,3 +9,12 @@ $block: "psa-single-video-share";
   text-align: center;
   width: 100%;
 }
+
+.#{$block}__loader-div {
+  background-color: #1e1e2f;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+  text-align: center;
+}
