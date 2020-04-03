@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { auth } from "../../services/firebase";
+import {Helmet} from "react-helmet";
 import { getVideo } from "../../helpers/db";
 import Loader from "react-loader-spinner";
 
@@ -62,6 +63,12 @@ class SingleVideoShare extends Component {
     }
     return (
       <div className={`${baseClassName}`}>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>Covid-19</title>
+            <meta name="description" content="Help to spread awareness for covid-19" />
+            <link rel="canonical" href="http://mysite.com/example" />
+        </Helmet>
         <VideoCard
          url={video.outputUrl}
          name={video.psaName} 

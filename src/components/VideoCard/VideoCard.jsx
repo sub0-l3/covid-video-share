@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import { withRouter } from "react-router-dom";
-import firebase from "firebase";
 import Moment from 'react-moment'
 import {
   FacebookShareButton,
@@ -95,14 +94,7 @@ class VideoCard extends Component {
           created on: <Moment format="dddd, MMMM D, YYYY hh:mm A" withTitle>{date}</Moment>
         </div>
         <div className={`${baseClassName}__download`}>
-          {/* <DownloadLink
-            label={<FaDownload color={"white"} />}
-            filename={outputVideoId}
-            exportFile={() => 'https://firebasestorage.googleapis.com/v0/b/recordingmechanic.appspot.com/o/videos%2F050a4306-aaa0-735b-bc8d-20cd13b322e3?alt=media&token=142938ff-8a2d-4916-af56-8522123bfbe1'}
-          />
-
-      <a href={url} download="a.mp4">download me</a> */}
-      <button onClick={()=>this.downloadFile()} className={`${baseClassName}__download-button`}><FaDownload color={"white"}/></button>
+            <button onClick={()=>this.downloadFile()} className={`${baseClassName}__download-button`}><FaDownload color={"white"}/></button>
         </div>
       </div>
     );
