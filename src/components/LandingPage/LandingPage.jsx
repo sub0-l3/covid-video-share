@@ -69,8 +69,10 @@ class LandingPage extends Component {
               <VideoCard
                 url={video.outputUrl}
                 name={video.psaName}
+                outputVideoId={video.outputVideoId}
                 key={video.psaId}
                 psaId={psaId[index]}
+                videoId={video.videoId}
                 redirect={true}
                 date={video.createdDate}
               />

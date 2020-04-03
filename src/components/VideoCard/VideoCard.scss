@@ -25,3 +25,10 @@ $block: "psa-video-card";
 .#{$block}__date {
   color: white;
 }
+
+.#{$block}__download-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}

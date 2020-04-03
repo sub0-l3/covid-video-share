@@ -13,14 +13,21 @@ class App extends Component {
       authenticated: false
     };
   }
-  async componentDidMount() {
+  componentDidMount() {
 
     auth().onAuthStateChanged(user => {
       if (user) {
-        readUserData(user.uid);
-
+        readUserData(user.uid)
+        // .onSnapshot(querySnapshot => {
+        //   console.log('hi');
+        //   console.log(querySnapshot.data())
+        // });
+        console.log(user)
         this.setState({
-          authenticated: true
+          authenticated: true,
+          userName: user.displayName,
+          email: user.email,
+          avatar: user.photoURL
         });
       } else {
 
@@ -36,12 +43,17 @@ class App extends Component {
       }
     });
   }
-
+  
   render() {
     const baseClassName = "psa-app";
+    const  {userName, email, avatar} = this.state;
     return (
       <div className={`${baseClassName}`}>
-        <NavigationBar />
+        <NavigationBar
+         userName={userName}
+         email={email}
+         avatar={avatar} 
+         />
         <div className={`${baseClassName}__app-div`}>{this.props.children}</div>
       </div>
     );

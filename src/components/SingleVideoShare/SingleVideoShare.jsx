@@ -66,6 +66,8 @@ class SingleVideoShare extends Component {
          url={video.outputUrl}
          name={video.psaName} 
          date={video.createdDate}
+         outputVideoId={video.outputVideoId}
+         videoId={video.videoId}
          />
       </div>
     );
