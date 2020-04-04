@@ -72,6 +72,7 @@ class SingleVideoShare extends Component {
             <meta property="og:title" content="Avareness for covid" />
             <meta property="og:description" content="Help to spread awareness for covid-19" />
             <meta property="og:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" />
+            <meta property="og:video" content={this.props.video && this.props.video.outputUrl} />
             <meta property="og:url" content={window.location} />
 
             <meta name="twitter:title" content="Avareness for covid" />
