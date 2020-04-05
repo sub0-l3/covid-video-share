@@ -12,11 +12,6 @@ class NavigationBar extends Component {
     this.state = {};
   }
 
-  // goBackBtn = () => {
-  //   // window.history.back();
-  //   window.history.go(-1)
-
-  // };
   goBackBtn = (e) => {
     window.history.go(-1);
     e.preventDefault();

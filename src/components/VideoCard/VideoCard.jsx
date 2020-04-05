@@ -21,12 +21,13 @@ import { FaDownload } from "react-icons/fa";
 import "./VideoCard.scss";
 class VideoCard extends Component {
   static defaultProps = {
-    shouldDisplayMenu: true
+    shouldDisplayMenu: true,
+    userId: ''
   };
 
   redirectToSingleVideo = () => {
     if (this.props.redirect)
-      this.props.history.replace(`/videos/${this.props.psaId}`);
+      this.props.history.replace(`/${this.props.userId}/videos/${this.props.psaId}`);
   };
 
  downloadFile = () => {

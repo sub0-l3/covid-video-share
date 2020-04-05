@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { auth } from "../../services/firebase";
 import {Helmet} from "react-helmet";
 import { getVideo } from "../../helpers/db";
 import Loader from "react-loader-spinner";
@@ -24,17 +23,13 @@ class SingleVideoShare extends Component {
     this.setState({
       isLoading: true
     })
-    const videoId = this.props.match.params.id;
-    auth().onAuthStateChanged(user => {
-      if (user) {
-        getVideo(user.uid, videoId).onSnapshot(querySnapshot => {
-          console.log(querySnapshot.data())
-          this.setState({
-                  video: querySnapshot.data(),
-                  isLoading: false
-                });
-        });
-      }
+
+    getVideo(this.props.match.params.userId, this.props.match.params.id).onSnapshot(querySnapshot => {
+      console.log(querySnapshot.data())
+      this.setState({
+              video: querySnapshot.data(),
+              isLoading: false
+            });
     });
   }
 

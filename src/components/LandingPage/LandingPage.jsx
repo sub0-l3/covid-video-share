@@ -35,7 +35,8 @@ class LandingPage extends Component {
           this.setState({
             videos: videos,
             isLoading: false,
-            psaId: psaId
+            psaId: psaId,
+            userId: user.uid
           });
         });
       }
@@ -47,7 +48,7 @@ class LandingPage extends Component {
   }
   render() {
     const baseClassName = "psa-landing-page";
-    const { isLoading, videos, psaId } = this.state;
+    const { isLoading, videos, psaId, userId } = this.state;
     if (isLoading) {
       return (
         <div className={`${baseClassName}__loader-div`}>
@@ -87,6 +88,7 @@ class LandingPage extends Component {
                 name={video.psaName}
                 outputVideoId={video.outputVideoId}
                 key={index}
+                userId={userId}
                 psaId={psaId[index]}
                 videoId={video.videoId}
                 redirect={true}
