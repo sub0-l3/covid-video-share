@@ -64,15 +64,21 @@ class SingleVideoShare extends Component {
             <meta name="description" content="Help to spread awareness for covid-19" />
             <link rel="canonical" href="http://mysite.com/example" />
 
-            <meta property="og:title" content="Avareness for covid" />
-            <meta property="og:description" content="Help to spread awareness for covid-19" />
-            <meta property="og:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" />
-            <meta property="og:video" content={this.props.video && this.props.video.outputUrl} />
             <meta property="og:url" content={window.location} />
-
-            <meta name="twitter:title" content="Avareness for covid" />
+            <meta property="og:type" content="video" />
+            <meta property="og:title" content={video.psaName} />
+            <meta property="og:description" content="Help to spread awareness for covid-19" />
+            {/* <meta property="og:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" /> */}
+            <meta property="og:video" content={video.outputUrl} />
+            <meta property="og:video:type" content="video/mp4" />
+            <meta property="og:video:width" content="300px" />
+            <meta property="og:video:width" content="300px" />
+            
+            <meta property="twitter:type" content="video" />
+            <meta name="twitter:title" content={video.psaName} />
             <meta name="twitter:description" content="Help to spread awareness for covid-19" />
-            <meta name="twitter:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" />
+            {/* <meta name="twitter:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" /> */}
+            <meta property="twitter:video" content={video.outputUrl} />
             <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
         <VideoCard
