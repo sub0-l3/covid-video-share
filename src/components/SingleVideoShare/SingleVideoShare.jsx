@@ -47,7 +47,7 @@ class SingleVideoShare extends Component {
       return (
         <div className={`${baseClassName}__loader-div`}>
         <Loader
-          type="Oval"
+          type="ThreeDots"
           color="#00BFFF"
           height={100}
           width={100}

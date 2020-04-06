@@ -54,9 +54,9 @@ class NavigationBar extends Component {
               Back
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href={process.env.REACT_APP_LINK_VIDEO_LIB}>Video library</a>
-          </li>
+          </li> */}
           <li>{userName && userProfile}</li>
         </ul>
       </div>
