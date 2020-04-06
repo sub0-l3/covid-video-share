@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Helmet} from "react-helmet";
 import { getVideo } from "../../helpers/db";
+import axios from 'axios'
 import Loader from "react-loader-spinner";
 
 import VideoCard from "../VideoCard";
@@ -15,7 +16,8 @@ class SingleVideoShare extends Component {
     super(props);
     this.state = {
       video: {},
-      isLoading: false
+      isLoading: false,
+      videoFileExists: false
     };
   }
 
@@ -23,15 +25,42 @@ class SingleVideoShare extends Component {
     this.setState({
       isLoading: true
     })
-
+    
     getVideo(this.props.match.params.userId, this.props.match.params.id).onSnapshot(querySnapshot => {
       console.log(querySnapshot.data())
-      this.setState({
-              video: querySnapshot.data(),
-              isLoading: false
-            });
+
+      this.tryRequire(querySnapshot.data().outputUrl).then(res=>{
+        console.log(res);
+        this.setState({
+          videoFileExists: true,
+          video: querySnapshot.data(),
+          isLoading: false
+        });
+      }, err=> {
+        console.log(err)
+        this.setState({
+          videoFileExists: false
+        });
+        alert("file does not exist!");
+      });
+      // this.setState({
+      //         video: querySnapshot.data(),
+      //         isLoading: false
+      //       });
     });
   }
+
+ tryRequire = (url) => {
+  var config = {
+    headers: {'Access-Control-Allow-Origin': '*'}
+  };
+   return axios({
+      url: url,
+      method: 'GET',
+      responseType: 'blob', // important
+      config
+    })
+}
 
   shouldComponentUpdate(nextProps, nextState) {
     return Object.keys(this.state.video).length === 0;
@@ -84,7 +113,7 @@ class SingleVideoShare extends Component {
         <VideoCard
          url={video.outputUrl}
          name={video.psaName} 
-         date={video.createdDate}
+         date={video.createdDate ? new Date(video.createdDate.seconds*1000) : video.createdDate}
          outputVideoId={video.outputVideoId}
          videoId={video.videoId}
          />

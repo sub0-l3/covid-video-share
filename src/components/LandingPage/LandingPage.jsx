@@ -92,7 +92,7 @@ class LandingPage extends Component {
                 psaId={psaId[index]}
                 videoId={video.videoId}
                 redirect={true}
-                date={video.createdDate}
+                date={video.createdDate ? new Date(video.createdDate.seconds*1000) : video.createdDate}
               />
             );
           })}
